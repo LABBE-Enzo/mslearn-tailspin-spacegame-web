@@ -8,7 +8,7 @@ ms.locfileid: "133213700"
 trigger:
 - '*'
 pool:
-  vmImage: ubuntu-20.04
+  vmImage: ubuntu-latest
   demands:
   - npm
 variables:
