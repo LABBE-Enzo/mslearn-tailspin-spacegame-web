@@ -1,4 +1,5 @@
 ### YamlMime:Yaml
+
 trigger:
 - '*'
 pool:
@@ -49,3 +50,11 @@ steps:
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
   condition: succeeded()
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'build'
